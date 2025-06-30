@@ -1,0 +1,511 @@
+{
+  "address": "6YnWTXBsLgFcEygmvA9r6FzVWu5gLxfgcpw4vXiQPUBJ",
+  "metadata": {
+    "name": "wpmwar_program",
+    "version": "0.1.1",
+    "spec": "0.1.0",
+    "description": "Unleash your speed"
+  },
+  "instructions": [
+    {
+      "name": "claim_reward",
+      "discriminator": [
+        149,
+        95,
+        181,
+        242,
+        94,
+        90,
+        158,
+        162
+      ],
+      "accounts": [
+        {
+          "name": "winner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "winner_token_account",
+          "writable": true
+        },
+        {
+          "name": "owner_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  45,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "game_room",
+          "writable": true
+        },
+        {
+          "name": "winner_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  102,
+                  105,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "winner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "loser"
+        },
+        {
+          "name": "loser_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  102,
+                  105,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "loser"
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_stats",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "winner",
+          "type": "pubkey"
+        },
+        {
+          "name": "loser",
+          "type": "pubkey"
+        },
+        {
+          "name": "wpm",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "forfeit_match",
+      "discriminator": [
+        56,
+        103,
+        214,
+        186,
+        105,
+        172,
+        246,
+        66
+      ],
+      "accounts": [
+        {
+          "name": "claimer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "owner",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "game_room",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_global_stats",
+      "docs": [
+        "✅ Only admin can initialize global stats"
+      ],
+      "discriminator": [
+        57,
+        82,
+        52,
+        126,
+        182,
+        236,
+        5,
+        131
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "✅ Only the admin can initialize"
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "5YXqWPPLV36J8fvssCkwbrfFB5wYnJaTVvETef43apaW"
+        },
+        {
+          "name": "global_stats",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "join_match",
+      "discriminator": [
+        244,
+        8,
+        47,
+        130,
+        192,
+        59,
+        179,
+        44
+      ],
+      "accounts": [
+        {
+          "name": "player",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "vault",
+          "writable": true
+        },
+        {
+          "name": "player_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  102,
+                  105,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ]
+          }
+        },
+        {
+          "name": "game_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  97,
+                  109,
+                  101,
+                  95,
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "global_stats",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GameRoom",
+      "discriminator": [
+        201,
+        210,
+        56,
+        115,
+        19,
+        56,
+        27,
+        69
+      ]
+    },
+    {
+      "name": "GlobalStats",
+      "discriminator": [
+        119,
+        53,
+        78,
+        3,
+        254,
+        129,
+        78,
+        28
+      ]
+    },
+    {
+      "name": "PlayerProfile",
+      "discriminator": [
+        82,
+        226,
+        99,
+        87,
+        164,
+        130,
+        181,
+        80
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "RoomFull",
+      "msg": "Room is full"
+    },
+    {
+      "code": 6001,
+      "name": "MatchNotComplete",
+      "msg": "Match not complete"
+    },
+    {
+      "code": 6002,
+      "name": "MatchStillActive",
+      "msg": "Match still active"
+    },
+    {
+      "code": 6003,
+      "name": "Unauthorized",
+      "msg": "Unauthorized forfeit"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidWinner",
+      "msg": "Invalid winner"
+    }
+  ],
+  "types": [
+    {
+      "name": "GameRoom",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "player1",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "player2",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "bet_amount",
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": "u8"
+          },
+          {
+            "name": "winner",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalStats",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "total_players",
+            "type": "u64"
+          },
+          {
+            "name": "total_matches",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlayerProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "games_played",
+            "type": "u32"
+          },
+          {
+            "name": "wins",
+            "type": "u32"
+          },
+          {
+            "name": "highest_wpm",
+            "type": "u32"
+          }
+        ]
+      }
+    }
+  ]
+}
