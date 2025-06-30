@@ -51,17 +51,17 @@ export default function WarRoom() {
         // @ts-expect-error: ignore missing gameRoom type until IDL is updated
         const room = await program.account.gameRoom.fetch(gameRoomPDA);
         setGameRoom(room);
-        console.log("✅ GameRoom state:", room);
+        //console.log("✅ GameRoom state:", room);
 
         if (room.player1?.toBase58() === publicKey.toBase58()) {
-          console.log("✅ You are Player1");
+          //console.log("✅ You are Player1");
           setLoading(false);
         } else if (room.player2?.toBase58() === publicKey.toBase58()) {
-          console.log("✅ You are Player2");
+          //console.log("✅ You are Player2");
           setLoading(false);
         }
       } catch {
-        console.log("⏳ Waiting for on-chain GameRoom...");
+        //console.log("⏳ Waiting for on-chain GameRoom...");
       }
     }, 2000);
 
@@ -80,7 +80,7 @@ export default function WarRoom() {
 
     socket.on("startMatch", (data) => {
       setParagraph(data.paragraph);
-      console.log("🚀 Match started with paragraph:", data.paragraph);
+      //console.log("🚀 Match started with paragraph:", data.paragraph);
     });
 
     socket.on("opponentProgress", ({ progress }) => {
@@ -125,7 +125,7 @@ export default function WarRoom() {
         const elapsed = now - Number(gameRoom.startTime);
         const remaining = Math.max(600 - elapsed, 0);
 
-        console.log(`⏳ Forfeit elapsed: ${elapsed}s, remaining: ${remaining}s`);
+        //console.log(`⏳ Forfeit elapsed: ${elapsed}s, remaining: ${remaining}s`);
 
         setForfeitCountdown(remaining);
         setForfeitAvailable(elapsed >= 600 && gameRoom.player2 === null);
@@ -184,7 +184,7 @@ export default function WarRoom() {
       socket.emit("progressUpdate", { progress: newProgress });
 
       if (newProgress >= 100) {
-        console.log("✅ Finished!");
+        //console.log("✅ Finished!");
       }
     }
   }

@@ -36,7 +36,7 @@ export default function WaitingRoom() {
       try {
         // @ts-expect-error: ignore missing gameRoom type until IDL is updated
         const gameRoom = await program.account.gameRoom.fetch(gameRoomPDA);
-        console.log("🔍 Existing GameRoom:", gameRoom);
+        //console.log("🔍 Existing GameRoom:", gameRoom);
 
         if (
           (gameRoom.player1?.toBase58() === publicKey.toBase58() ||
@@ -47,7 +47,7 @@ export default function WaitingRoom() {
           router.push("/war_room");
         }
       } catch (e) {
-        console.log("No active game found for player yet.", e);
+        //console.log("No active game found for player yet.", e);
       }
     };
 
@@ -87,14 +87,14 @@ export default function WaitingRoom() {
         program.programId
       );
 
-      console.log("🔍 Debugging JoinMatch:");
-      console.log("Program ID:", program.programId.toBase58());
-      console.log("Player pubkey:", publicKey.toBase58());
-      console.log("Vault pubkey:", VAULT_PUBKEY.toBase58());
-      console.log("Profile PDA:", profilePDA.toBase58());
-      console.log("Game Room PDA:", gameRoomPDA.toBase58());
-      console.log("Global Stats PDA:", globalStatsPDA.toBase58());
-      console.log("Lamports:", lamports);
+      //console.log("🔍 Debugging JoinMatch:");
+      //console.log("Program ID:", program.programId.toBase58());
+      //console.log("Player pubkey:", publicKey.toBase58());
+      //console.log("Vault pubkey:", VAULT_PUBKEY.toBase58());
+      //console.log("Profile PDA:", profilePDA.toBase58());
+      //console.log("Game Room PDA:", gameRoomPDA.toBase58());
+      //console.log("Global Stats PDA:", globalStatsPDA.toBase58());
+      //console.log("Lamports:", lamports);
 
       // ✅ Get transaction and fresh blockhash to avoid duplicate tx
       const tx = await program.methods
@@ -124,9 +124,9 @@ export default function WaitingRoom() {
         { skipPreflight: false }
       );
 
-      console.log("✅ Join match TX signature:", txSig);
+      //console.log("✅ Join match TX signature:", txSig);
       await program.provider.connection.confirmTransaction(txSig, "confirmed");
-      console.log(`👉 Explorer: https://explorer.gorbagana.devnet.solana.com/tx/${txSig}`);
+      //console.log(`👉 Explorer: https://explorer.gorbagana.devnet.solana.com/tx/${txSig}`);
 
       setSignature(txSig);
       setStatus("waiting");
@@ -139,10 +139,10 @@ export default function WaitingRoom() {
       console.error("❌ Join match failed:", err);
 
       if (err.logs) {
-        console.log("📝 Program logs:", err.logs);
+        //console.log("📝 Program logs:", err.logs);
       } else if (err.getLogs) {
         const logs = await err.getLogs();
-        console.log("📝 Simulation logs:", logs);
+        //console.log("📝 Simulation logs:", logs);
       }
 
       if (err.message?.includes("AccountNotInitialized")) {
