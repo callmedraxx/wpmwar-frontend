@@ -26,43 +26,12 @@
           "signer": true
         },
         {
-          "name": "winner_token_account",
-          "writable": true
-        },
-        {
-          "name": "owner_token_account",
+          "name": "owner",
           "writable": true
         },
         {
           "name": "vault",
           "writable": true
-        },
-        {
-          "name": "vault_authority",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  118,
-                  97,
-                  117,
-                  108,
-                  116,
-                  45,
-                  97,
-                  117,
-                  116,
-                  104,
-                  111,
-                  114,
-                  105,
-                  116,
-                  121
-                ]
-              }
-            ]
-          }
         },
         {
           "name": "game_room",
@@ -145,8 +114,8 @@
           }
         },
         {
-          "name": "token_program",
-          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
