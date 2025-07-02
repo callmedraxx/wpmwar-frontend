@@ -1,5 +1,5 @@
 {
-  "address": "6YnWTXBsLgFcEygmvA9r6FzVWu5gLxfgcpw4vXiQPUBJ",
+  "address": "2K7A26VUc7ir5rGWngoVbBota3mXf1gUs9kLYTE4oFwV",
   "metadata": {
     "name": "wpmwar_program",
     "version": "0.1.1",
@@ -430,6 +430,11 @@
       "code": 6004,
       "name": "InvalidWinner",
       "msg": "Invalid winner"
+    },
+    {
+      "code": 6005,
+      "name": "RoomAlreadyFinished",
+      "msg": "Room already finished"
     }
   ],
   "types": [

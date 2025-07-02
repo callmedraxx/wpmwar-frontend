@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import { WalletConnectionProvider } from "@/components/WalletProvider";
 import { Toaster } from "sonner";
@@ -14,6 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+});
+
+
 export const metadata: Metadata = {
   title: "WPM War",
   description: "EARN WHILE YOU LEARN TO TYPE FASTER",
@@ -27,9 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}>
         <WalletConnectionProvider>
         {children}
         <Toaster richColors position="top-right" />

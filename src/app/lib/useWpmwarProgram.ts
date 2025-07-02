@@ -11,7 +11,7 @@ import {
 import idl from "../../idl/wpmwar_program.json";
 
 export const PROGRAM_ID = new web3.PublicKey(
-  "6YnWTXBsLgFcEygmvA9r6FzVWu5gLxfgcpw4vXiQPUBJ"
+  "2K7A26VUc7ir5rGWngoVbBota3mXf1gUs9kLYTE4oFwV"
 );
 
 export function useWpmwarProgram() {
